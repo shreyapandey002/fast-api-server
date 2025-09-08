@@ -154,7 +154,7 @@ async def analyze_file(file: UploadFile, period: str = Form("monthly")):
         tmp_pdf_file = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf").name
         generate_pdf_report(analysis, tmp_pdf_file)
 
-        return {"status": "success", "download_link": f"/download/{os.path.basename(tmp_pdf_file)}"}
+        return {"status": "success", "download_link": f"https://fast-api-server-x1ks.onrender.com/download/{os.path.basename(tmp_pdf_file)}"}
 
     except Exception as e:
         return JSONResponse(status_code=400, content={"status": "error", "message": str(e)})
